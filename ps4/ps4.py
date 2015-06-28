@@ -266,6 +266,25 @@ def find_best_shift(wordlist, text):
     """
     ### TODO
    
+    s = 0
+    maxs = 0
+    maxcount = 0
+    while s < 27:
+        count = 0
+        #print s
+        a = apply_coder(text, build_decoder(s))
+        #print a
+        a = a.split()
+        for word in a:
+            #print word
+            if is_word(wordlist, word):
+                count = count + 1
+        #print count
+        if count > maxcount:
+            maxcount = count
+            maxs = s
+        s += 1    
+    return maxs 
 #
 # Problem 3: Multi-level encryption.
 #
