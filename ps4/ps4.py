@@ -305,7 +305,13 @@ def apply_shifts(text, shifts):
     'JufYkaolfapxQdrnzmasmRyrpfdvpmEurrb?'
     """
     ### TODO.
- 
+    for i in range(len(shifts)):
+        a = apply_shift(text[shifts[i][0]:], shifts[i][1])
+        #print a
+        #print text[:shifts[i][0]]
+        text = text[:shifts[i][0]] + a
+                
+    return text
 #
 # Problem 4: Multi-level decryption.
 #
